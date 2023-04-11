@@ -1,5 +1,5 @@
 import './css/App.css';
-
+import { Header, Footer } from './pages';
 function ButtonComponent(props) {
   const {name, cutomClassName} = props;
   return (
@@ -10,10 +10,12 @@ function ButtonComponent(props) {
 
 function App() {
   return (
-    <div className='wrapper'>
+    <>
+    <Header />
       <ButtonComponent name='John' cutomClassName='red'/>
       <ButtonComponent name='Giorgi' cutomClassName='blue'/>
-    </div>
+      <Footer/>
+    </>
   )
 }
 
