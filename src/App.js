@@ -1,22 +1,15 @@
-import './css/App.css';
-import { Header, Footer } from './pages';
-function ButtonComponent(props) {
-  const {name, cutomClassName} = props;
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import {rukaMap, Header, Footer} from './pages';
+export default function App() {
   return (
-    <button className={cutomClassName}>{name}</button>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        {rukaMap.map((route, index) => (
+          <Route key={`route-list-${index}`} path={route.path} element={route.element}/>
+        ))}
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   )
 }
-
-
-function App() {
-  return (
-    <>
-    <Header />
-      <ButtonComponent name='John' cutomClassName='red'/>
-      <ButtonComponent name='Giorgi' cutomClassName='blue'/>
-      <Footer/>
-    </>
-  )
-}
-
-export default App;
