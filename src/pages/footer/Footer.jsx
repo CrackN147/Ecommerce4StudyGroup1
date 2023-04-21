@@ -1,4 +1,4 @@
-import { PageLink } from 'src/globalComponents';
+import { PageLink } from '../../globalComponents';
 export function Footer() {
   const links = [
     {to: '/', name: 'Home'},
