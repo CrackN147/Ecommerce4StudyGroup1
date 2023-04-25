@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react"
-import axios from 'axios';
+import { Link } from "react-router-dom"
 import { Loader } from "globalComponents";
+import {api} from "services/api"
 export function Products () {
   const [products, setProducts] = useState([])
   useEffect(() => {
     async function fetchData () {
-      const apiData = await axios.get('https://fakestoreapi.com/products');
+      const apiData = await api._get('https://fakestoreapi.com/products');
       if (apiData.status === 200) {
         setProducts(apiData.data);
       }
@@ -23,6 +24,7 @@ export function Products () {
               <h2>{product.title}</h2>
               {/* <p>{product.description}</p> */}
               <p>{product.price}</p>
+              <Link to={`/products/${product.id}`}>View Details</Link>
             </div>
           ))
           : <Loader />

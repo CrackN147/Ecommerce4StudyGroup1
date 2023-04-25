@@ -1,20 +1,16 @@
 import { PageLink } from '../../../globalComponents';
-export function Nav () {
+export function Nav({langs, language}) {
   const links = [
-    {to: '/', name: 'Home'},
-    {to: '/about', name: 'About'},
-    {to: '/contact', name: 'Contact'},
-    {to: '/products', name: 'Products'}
+    { to: '/', name: langs[language].home.title },
+    { to: '/about', name: langs[language].about.title },
+    { to: '/contact', name: langs[language].contact.title },
+    { to: '/products', name: langs[language].products.title }
   ];
   return (
-    <nav>
-      <ul>
-        {links.map((link, index) => (
-          <li key={index}>
-            <PageLink to={link.to} name={link.name} />
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <div className='navigation'>
+      {links.map((link, index) => (
+        <PageLink to={link.to} name={link.name} key={index} />
+      ))}
+    </div>
   )
 }
