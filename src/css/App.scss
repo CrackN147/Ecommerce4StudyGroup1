@@ -9,13 +9,49 @@
 }
 
 #products {
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     div{
+        width: 30%;
+        padding: 5px;
+        margin: 5px;
         border: 1px solid black;
     }
     img{
         width: 100px;
         height: 100px;
     }
+}
+
+#categories {
+    width: calc(30% - 1px);
+    border-right: 1px solid #000;
+    a{
+        display: block;
+        padding: 10px;
+        text-decoration: none;
+        color: black;
+        &:hover{
+            background-color: rgb(39, 0, 156);
+            color: white;
+        }
+    }
+}
+
+#filters{
+    display: flex;
+    justify-content: right;
+    margin: 10px 20px;
+    button{
+        padding: 5px 10px;
+        margin: 0 5px;
+    }
+}
+
+.wrapper{
+    display: flex;
 }
 
 #loader {

@@ -16,7 +16,6 @@ export function ProductsDetails () {
     // }
     async function fetchData () {
       const apiData = await api._get(`https://fakestoreapi.com/products/${prID}`);
-      console.log(apiData)
       if (apiData.status === 200) {
         setProduct(apiData.data);
       }
@@ -49,7 +48,7 @@ export function ProductsDetails () {
             <div key={index}>
               <img src={product.image} alt={product.title} />
               <p>{product.price}</p>
-              <Link to={`/products/${product.id}`}>View Details</Link>
+              <Link to={`/product-details/${product.id}`}>View Details</Link>
             </div>
           ))
           : <p>No related products</p>

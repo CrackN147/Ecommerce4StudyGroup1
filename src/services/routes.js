@@ -21,7 +21,11 @@ export const routesMap = [
     element: <Products />,
   },
   {
-    path: 'products/:prID',
+    path: 'products/:category',
+    element: <Products />,
+  },
+  {
+    path: 'product-details/:prID',
     element: <ProductsDetails />,
   }
 ];
