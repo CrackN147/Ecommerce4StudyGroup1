@@ -11,6 +11,9 @@ export const langs = {
     },
     products: {
       title: 'პროდუქცია',
+    },
+    productAdd: {
+      title: 'პროდუქტის დამატება',
     }
   },
   en: {
@@ -25,6 +28,9 @@ export const langs = {
     },
     products: {
       title: 'Products',
+    },
+    productAdd: {
+      title: 'Product Add',
     }
   },
 }

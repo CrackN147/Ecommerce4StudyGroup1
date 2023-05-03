@@ -16,7 +16,7 @@ export function Categories () {
   }, [])
   return (
     <div id="categories">
-      <h2>Categories</h2>
+      <h3>Categories</h3>
       {categories.length > 0 ?
         categories.map((category, index) => (
           <Link to={`/products/${category}`} key={`category-link-${index}`}>

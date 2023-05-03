@@ -5,3 +5,4 @@ export {About} from './about';
 export {Contact} from './contact';
 export {Products} from './products';
 export {ProductsDetails} from './productDetails';
+export {ProductAdd} from './productAdd';

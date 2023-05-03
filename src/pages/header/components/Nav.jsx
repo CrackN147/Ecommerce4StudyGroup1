@@ -4,7 +4,8 @@ export function Nav({langs, language}) {
     { to: '/', name: langs[language].home.title },
     { to: '/about', name: langs[language].about.title },
     { to: '/contact', name: langs[language].contact.title },
-    { to: '/products', name: langs[language].products.title }
+    { to: '/products', name: langs[language].products.title },
+    { to: '/product-add', name: langs[language].productAdd.title}
   ];
   return (
     <div className='navigation'>
