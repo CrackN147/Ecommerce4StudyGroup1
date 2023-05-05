@@ -14,6 +14,9 @@ export const langs = {
     },
     productAdd: {
       title: 'პროდუქტის დამატება',
+    },
+    productEdit: {
+      title: 'პროდუქტის რედაქტირება',
     }
   },
   en: {
@@ -31,6 +34,9 @@ export const langs = {
     },
     productAdd: {
       title: 'Product Add',
+    },
+    productEdit: {
+      title: 'Product Edit',
     }
   },
 }

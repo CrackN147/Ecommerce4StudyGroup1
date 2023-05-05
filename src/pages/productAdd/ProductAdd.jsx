@@ -1,72 +1,106 @@
-import { useState } from 'react';
-import { api } from 'services/api';
+import { useState } from "react";
 export function ProductAdd() {
-  const [title, setTitle] = useState('');
-  const [price, setPrice] = useState(0);
-  const [description, setDescription] = useState('');
-  function onChangeTitle(e){
-    setTitle(e.target.value)
-  }
-  function onChangePrice(e){
-    setPrice(e.target.value)
-  }
-  function onChangeDescription(e){
-    setDescription(e.target.value)
-  }
+  const [name, setName] = useState("");
+  const [price, setPrice] = useState("");
+  const [description, setDescription] = useState("");
 
-  function cleanInputs(){
-    setTitle('');
-    setPrice(0);
-    setDescription('');
-  }
+  const [error, setError] = useState({
+    name: "",
+    price: "",
+    description: ""
+  });
 
-  async function addProduct(e){
-    e.preventDefault();
-    let postData = {
-      title: title,
-      price: price,
-      description: description,
-      image: 'https://i.pravatar.cc',
-      category: 'electronic'
+  const changeName = (e) => {
+    let value = e.target.value;
+    if (value.length <= 20) {
+      setName(value);
     }
-    const apiPostData = await api._post('https://fakestoreapi.com/products', postData);
-    if(apiPostData.status === 200){
-      alert('Product added successfully')
-      cleanInputs();
+  }
+  const changePrice = (e) => {
+    let value = e.target.value;
+    value = value.replace(/[^\d.]/g, '');
+    let dotCount = value.split('.');
+    if (
+      dotCount.length > 2 || 
+      (dotCount[1] && dotCount[1].length > 2) ||
+      (dotCount[0] && parseInt(dotCount[0]) > 10000)
+    ) {
+      return;
+    }
+    setPrice(value);
+  }
+  const changeDescription = (e) => {
+    setDescription(e.target.value);
+  }
+
+  const processErrors = (errorType) => {
+    let newError = { ...error };
+    if (errorType === "name") {
+      newError.name = "დასახელება აუცილებელია";
+    } else if (errorType === "price") {
+      newError.price = "ფასი აუცილებელია";
+    } else if (errorType === "description") {
+      newError.description = "აღწერა აუცილებელია";
     } else {
-      alert('Error adding product')
+      newError.name = "";
+      newError.price = "";
+      newError.description = "";
     }
+    setError(newError);
   }
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (name.length > 20) {
+      processErrors("name");
+    } else {
+      processErrors("");
+    }
+  }
   return (
     <div id="formAdd">
-      <h1>ProductAdd</h1>
-      <form onSubmit={addProduct}>
+      <form onSubmit={handleSubmit}>
         <div className="form-element">
-          <label htmlFor="title">Title:</label>
-          <input type="text" id="title" name="title"
-            value={title}
-            onChange={onChangeTitle}
+          <label htmlFor="name">დასახელება</label>
+          <input type="text"
+            value={name} 
+            onChange={changeName} 
           />
+          {error.name &&
+            <label className="error">
+              {error.name}
+            </label>
+          }
         </div>
         <div className="form-element">
-          <label htmlFor="price">Price:</label>
-          <input type="number" id="price" name="price"
+          <label htmlFor="price">ფასი</label>
+          <input type="text"
+            placeholder="0.00"
             value={price}
-            onChange={onChangePrice} 
+            onChange={changePrice}
           />
+          {error.price &&
+            <label className="error">
+              {error.price}
+            </label>
+          }
         </div>
         <div className="form-element">
-          <label htmlFor="description">Description:</label>
-          <textarea id="description" name="description"
-            onChange={onChangeDescription}
-            defaultValue={description}
+          <label htmlFor="description">აღწერა</label>
+          <textarea id="description"
+            value={description} 
+            onChange={changeDescription}
           />
+          {error.description &&
+            <label className="error">
+              {error.description}
+            </label>
+          }
         </div>
         <div className="form-element">
-          <button type="submit">Add Product</button>
+          <button type="submit">დამატება</button>
         </div>
       </form>
     </div>
-  );
+  )
 }

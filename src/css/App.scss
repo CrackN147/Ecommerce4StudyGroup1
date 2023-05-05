@@ -143,19 +143,28 @@
         align-items: center;
         label{
             margin: 5px;
-            padding: 5px;
+            padding: 10px;
         }
         input{
             margin: 5px;
-            padding: 5px;
+            padding: 10px;
+            min-width: 250px;
+            border-radius: 5px;
         }
         textarea{
             margin: 5px;
-            padding: 5px;
+            padding: 10px;
+            width: 250px;
+            height: 100px;
         }
         button{
             margin: 5px;
             padding: 5px;
         }
     }
+}
+
+.error {
+    color: red;
+    text-align: center;
 }
