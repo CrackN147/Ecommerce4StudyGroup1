@@ -10,7 +10,7 @@ export function Products () {
   const { category } = useParams();
   // 
   const [products, setProducts] = useState([])
-  const [limit, setLimit] = useState(1);
+  const [limit, setLimit] = useState(3);
   const [sort, setSort] = useState('asc');
   // 
 

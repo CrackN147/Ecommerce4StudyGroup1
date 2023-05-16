@@ -7,3 +7,4 @@ export {Products} from './products';
 export {ProductsDetails} from './productDetails';
 export {ProductAdd} from './productAdd';
 export {ProductEdit} from './productEdit';
+export {Favorites} from './favorites';
