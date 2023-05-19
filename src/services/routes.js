@@ -6,7 +6,9 @@ import {
   ProductsDetails,
   ProductAdd,
   ProductEdit,
-  Favorites
+  Favorites,
+  Cart,
+  CheckOut
 } from '../pages';
 export const routesMap = [
   {
@@ -48,5 +50,13 @@ export const routesMap = [
   {
     path: 'favorites',
     element: <Favorites />,
+  },
+  {
+    path: 'cart',
+    element: <Cart />,
+  },
+  {
+    path: 'checkout',
+    element: <CheckOut />,
   }
 ];

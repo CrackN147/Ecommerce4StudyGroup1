@@ -98,7 +98,7 @@ export function Products () {
         <div id="products">
           {products.length > 0 ?
             products.map((product, index) => (
-              <Product product={product} key={index} />
+              <Product product={product} key={index} isCart={false} />
             ))
             : <Loader />
           }
